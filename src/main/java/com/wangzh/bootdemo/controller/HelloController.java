@@ -1,4 +1,4 @@
-package com.wangzh.bootdemo;
+package com.wangzh.bootdemo.controller;
 
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -17,7 +17,7 @@ public class HelloController
     public String hello ()
     {
         String hello = "Hello Spring Boot!";
-       // logger.debug("helloController.hello() hello={}", hello);
+        //logger.debug("helloController.hello() hello={}", hello);
         return hello;
     }
 }

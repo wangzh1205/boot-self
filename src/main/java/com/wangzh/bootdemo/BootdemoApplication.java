@@ -16,6 +16,9 @@ public class BootdemoApplication extends SpringBootServletInitializer
     
     public static void main(String[] args)
     {
+        // 自带的tomcat
         SpringApplication.run(BootdemoApplication.class, args);
+        // 自定义tomcat
+       // new SpringApplicationBuilder(BootdemoApplication.class).web(true).run(args);
     }
 }
