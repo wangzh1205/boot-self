@@ -11,6 +11,6 @@
     <title>Spring Boot</title>
 </head>
 <body>
-    hello Spring Boot
+    Spring Boot Demo 欢迎页！！！
 </body>
 </html>

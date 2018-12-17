@@ -1,0 +1,17 @@
+server:
+  port: 8080
+  servlet:
+    context-path: /bootdemo
+    application-display-name: bootdemo
+  tomcat:
+    accesslog:
+      enabled: false
+      directory: G:/logs
+      pattern: "%h %l %u %t \"%r\" %s %b %D"
+      suffix: .log
+      prefix: access_log
+spring:
+  mvc:
+    view:
+      prefix: /WEB-INF/jsp/
+      suffix: .jsp
