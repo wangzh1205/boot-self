@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Configuration status="debug">
+    <Properties>
+        <Property name="appname">bootdemo</Property>
+        <Property name="logpath">/home/wangzh/apache-tomcat/logs</Property>
+    </Properties>
+    <Appenders>
+        <Console name="Console" target="SYSTEM_OUT">
+            <PatternLayout pattern="%d{yyyy-HH-dd HH:mm:ss.SSS} %-4level %pid --- [%thread] %c{1.} : %msg%n" />
+        </Console>
+        
+        <RollingFile name="bootdemo-log" fileName="${logpath}/bootdemo.log" filePattern="${logpath}/bootdemo-%d{yyyy-MM-dd}.log">
+            <PatternLayout>
+                <Pattern>%d{yyyy-MM-dd HH:mm:ss.SSS} [%level] [%t] %c{1} - %msg%n</Pattern>
+            </PatternLayout>
+            <Policies>
+                <TimeBasedTriggeringPolicy interval="24"/>
+                <SizeBasedTriggeringPolicy size="10 MB"/>
+            </Policies>
+        </RollingFile>
+    </Appenders>
+
+    <Loggers>
+        <Logger name="com.wangzh.bootdemo" level="debug" additivity="false">
+            <appender-ref ref="bootdemo-log" level="debug"/>
+        </Logger>
+        <Root level="info" additivity="false">
+            <AppenderRef ref="Console"/>
+        </Root>
+    </Loggers>
+</Configuration>
