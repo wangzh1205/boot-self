@@ -1,7 +1,9 @@
 package com.wangzh.bootdemo.controller;
 
+import com.ctrip.framework.apollo.spring.annotation.EnableApolloConfig;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -16,10 +18,14 @@ import java.util.Random;
  * @create 2018-07-19 16:24
  */
 @RestController
+@EnableApolloConfig
 public class HelloController
 {
     private Logger logger = LoggerFactory.getLogger(HelloController.class);
     private static Map<Integer, Integer> hashMap = new HashMap<Integer, Integer>();
+    
+    @Value("${we}")
+    private String SYSTEM_TEST;
     
     @RequestMapping("/hello")
     public String hello ()
@@ -44,6 +50,14 @@ public class HelloController
             //System.out.println(hashMap);
         }
         
+        return hello;
+    }
+    
+    @RequestMapping("/test")
+    public String test ()
+    {
+        String hello = "Hello Spring Boot!" + SYSTEM_TEST;
+        logger.debug("helloController.hello() hello={}", hello + SYSTEM_TEST);
         return hello;
     }
 }

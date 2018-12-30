@@ -17,3 +17,8 @@ spring:
       suffix: .jsp
 logging:
   config: classpath:log4j2.xml
+
+apollo:
+  bootstrap:
+     enabled: true
+     namespaces: application
